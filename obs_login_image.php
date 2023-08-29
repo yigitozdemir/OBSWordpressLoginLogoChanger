@@ -41,3 +41,14 @@ add_action( 'login_enqueue_scripts', function(){
     error_log($data);
     wp_add_inline_style( 'obs_login', $data );
 });
+
+
+require_once __DIR__ . '/obs_login_menu_page.php';
+
+
+function _obsLogoCreateMenu () 
+{
+    add_menu_page( 'OBS Login Logo Changer', 'OBS Login Logo Changer', 'activate_plugins', 'obs_logo', 'obsLoginLogoRenderMenuPage', null, null );
+}
+
+add_action( 'admin_menu', '_obsLogoCreateMenu' );
